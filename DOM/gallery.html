@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Image Gallery</title>
+	<link rel="stylesheet" href="styles/layout.css" media="screen">
+</head>
+<body>
+	<h1>Snapshots</h1>
+	<li>
+	    <!-- this表示这个a元素节点 ,return false ,onclick事件处理函数认为这个链接没有被点击-->
+		<a href="./img/zilaiye1.jpg" onclick="showPic(this);return false;" title="zilaiye ">zilaiye</a>
+	</li>
+	<li>
+		<a href="./img/gangshou.jpg" onclick="showPic(this);return false;" title="gangshou">gangshou</a>
+	</li>
+	<li>
+		<a href="./img/kakaxi.jpg" onclick="showPic(this);return false;" title="kakaxi">kakaxi</a>
+	</li>
+	<li>
+		<a href="./img/dacang.jpg" onclick="showPic(this);return false;" title="dacang">dacang</a>
+	</li>
+    <!-- src可以为空或者一个默认的地址 -->
+	<img id="placeholder" src="./img/zilaiye2.jpg" alt="my image gallery" width="300px" height="300px" />
+	<p id="description">Choose an image.</p>
+	<script src="scripts/showPic.js">
+		
+	</script>
+</body>
+</html> 
