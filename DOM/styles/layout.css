@@ -24,7 +24,16 @@ li {
     padding: 1em;
     list-style: none;
 }
-img{
+img {
 	display: block;
 	clear: both;
+}
+#imagegallery {
+	list-style: none;
+}
+#imagegallery li {
+	display: inline;
+}
+#imagegallery li a img {
+	border: 0;
 }
