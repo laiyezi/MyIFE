@@ -21,6 +21,7 @@ function displayAccesskeys(){
 		//添加到数组
 		akeys[key] = text;
 	}
+	
 	// 创建列表
 	var list = document.createElement("ul");
 	for (key in akeys){

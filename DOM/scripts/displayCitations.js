@@ -17,14 +17,16 @@ function displayCitations() {
 		if (quoteChildren.length < 1) continue;
 		// 得到引用中最后一个元素节点
 		var elem = quoteChildren[quoteChildren.length - 1];
+        
         // 创建标记
 		var link = document.createElement("a");
 		var link_text = document.createTextNode("source");
 		link.appendChild(link_text);
 		link.setAttribute("href",url)
-        // 将标记添加到引用中的最后一个元素节点
 		var superscript = document.createElement("sup");
 		superscript.appendChild(link);
+		
+		// 将标记添加到引用中的最后一个元素节点
 		elem.appendChild(superscript);
 
 	}
