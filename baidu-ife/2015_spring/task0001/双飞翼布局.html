@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>双飞翼布局</title>
+        <style type='text/css'>
+        *{margin: 0;padding: 0;}
+      .main{background-color: #ccc;height:300px;width: 100%;float: left;}
+      .main .col_main{margin: 0 300px 0 200px}
+      .sub{background-color: red;height:300px;width: 200px;float: left;margin-left: -100%;}
+      .extra{background-color: blue;height:300px;width: 300px;float: left;margin-left: -300px;}
+      </style>
+    </head>
+    <body>
+      <div id="page">    
+        <div id="hd"></div>    
+           <div id="bd"> 
+                <div class="main">      
+                    <div class="col_main">main，双飞翼以原型为基础，在mian box内添加一个子BOX(col_main),col)main box设置margin:0 extra的width 0 sub的width，此时main两边还被占据，col_main相对父元素mian box靠中聚拢,实现金蝉脱壳，完成布局
+                    </div>
+                </div>         
+                <div class="sub">sub</div>        
+                <div class="extra">extra</div>    
+           </div>   
+        <div id="ft"></div>
+      </div>
+    </body>
+</html>

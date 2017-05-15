@@ -1,0 +1,42 @@
+*{margin: 0;padding: 0;}
+h1{color:blue;}
+h2{font-size: 14px;}
+p{font-size: 12px;color: yellow;background-color: black;}
+.uppercase{text-transform: uppercase;}
+p.lowercase{text-transform: lowercase;}
+p.capitalize{text-transform: capitalize;}
+img{border:2px solid red;}
+.div1,.div2{width: 960px;background-color: red}
+.div1{margin:0 auto;}
+.div2{position:absolute;left:50%;margin-left: -480px;}
+.div3{background-color: yellow;width:200px;text-align:center;border: 1 solid blue;border-radius: 10px}
+
+
+.r1,.r2,.r3,.r4,.r5,.r6,.r7,.r8{ height:1px;overflow: hidden;display: block;}
+.r1,.r8{margin:0 5px; ;}
+.r2,.r7{margin:0 3px;border-right: 2px solid;border-left: 2px solid;}
+.r3,.r6{margin:0 2px;border-right: 1px solid;border-left: 1px solid;}
+.r4,.r5{margin:0 1px;border-right: 1px solid;border-left: 1px solid;height: 2px}
+.mid{border-right: 1px solid;border-left: 1px solid;overflow: hidden;}
+.r2,.r3,.r4,.r5,.r6,.r7,.mid{border-color: #96C2F1;background-color: #EFF7FF;}
+.r1,.r8{background-color: #96C2F1;}
+
+.left{background-color: green;width:300px;position: absolute;}
+.right{background-color: yellow;margin-left: 300px;}
+
+.left1{background-color: green;width:300px;float:left;}
+.right1{background-color: yellow;margin-left: 300px;}
+
+.l{background-color: blue;width:300px;height: 100px; float: left;overflow: hidden;}
+.m{background-color: yellow;height: 100px; margin:0 310px 0 310px; }
+.r{background-color: green;width:300px;height:100px;float: right;overflow: hidden;}
+
+.l_1{background-color: yellow;width:300px;height: 200px;position: absolute;left: 0;top:0;overflow: hidden;}
+.m_1{background-color: red;height: 200px;margin:0 200px 0 300px;overflow: hidden;}
+.r_1{background-color: blue;width:200px;height: 200px;position: absolute;right: 0;top: 0;overflow: hidden;}
+
+
+/*.father{background-color: red;overflow: hidden;}
+.child{background-color: blue;width: 100px;height: 100px;float: left;margin:20px 10px;}*/
+.father{background-color: red;}
+.child{background-color: blue;width: 100px;height: 100px;display: inline-block;}

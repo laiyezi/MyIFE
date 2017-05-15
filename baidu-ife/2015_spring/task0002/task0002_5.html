@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>界面拖拽交互</title>
+	<style>
+	*{margin: 0; padding: 0}
+	.title {
+		width: 1200px;
+		margin: 0 auto;
+	}
+	.drag-block{
+		width: 900px;
+		height: 600px;	
+		border: 1px solid #aaa;
+		margin: 0 auto;
+		position: relative;
+	}
+	.droptarget {
+		width: 150px;
+		height: 500px;
+		border: 1px solid #4A3B31;
+		position: absolute;
+		float: left;
+		overflow: hidden;
+	}
+	#right-block {
+		left: 500px;
+
+	}
+	.move {
+        display: block;
+		width: 148px;
+		height: 48px;
+		border: 1px solid #FDFDFD;
+		background-color: #FB1905;
+		text-align: center;
+		cursor: move;
+	}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<ul>
+			<li>设置元素为可拖放</li>
+			<li>拖动什么 - ondragstart 和 setData()</li>
+			<li>放到何处 - ondragover:
+			</li>
+			<li>进行放置 - ondrop</li>
+			<li><a href="http://www.runoob.com/html/html5-draganddrop.html">参考：HTML5拖放</a></li>
+		</ul>
+	</div>
+	<div class="drag-block">
+		<div id="left-block" class="droptarget">
+            <span class="move" id="block1">1</span>
+            <span class="move" id="block2">2</span>
+            <span class="move" id="block3">3</span>
+            <span class="move" id="block4">4</span>
+            <span class="move" id="block5">5</span>
+            <span class="move" id="block6">6</span>
+
+		</div>
+		<div id="right-block" class="droptarget">
+            <span class="move" id="block7">7</span>
+            <span class="move" id="block8">8</span>
+            <span class="move" id="block9">9</span>
+            <span class="move" id="block10">10</span>
+            <span class="move" id="block11">11</span>
+            <span class="move" id="block12">12</span>		
+		</div>
+		<p></p>
+	</div>
+	<script src="scripts/util.js"></script>
+	<script src="scripts/task0002_5.js"></script>
+</body>
+</html>

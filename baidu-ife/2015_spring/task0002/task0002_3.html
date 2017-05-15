@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style type="text/css">
+		.container {
+			margin: 0 auto;
+			width: 500px;
+			height: 300px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.imglist {
+			width: 3000px;
+			height: 300px;
+			position: absolute;
+		}
+		.imglist img {float: left;}
+
+		.container .btn {
+			width: 100px;
+			height: 20px;
+			position: absolute;
+			bottom: 20px;
+			left: 200px;
+		}
+		.btn span {
+			cursor: pointer;
+			float: left;
+			border: 1 solid #fff;
+			border-radius: 100%;
+			width: 20px;
+			height: 20px;
+			background: #eff;
+			margin-left: 5px;
+		}
+		.btn .on {background-color: orangered;}
+		.arrow {
+			display: none;
+			cursor: pointer;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 135px;
+			font-size: 26px;
+			font-weight: bold;
+            line-height: 30px;
+			color: #fff;
+			text-align: center;
+			text-decoration: none;
+			background-color: rgba(0,0,0,0.3);
+		}
+		.container:hover .arrow{display: block;}
+		.arrow:hover {background-color: rgba(0,0,0,0.9);}
+        #prev {left: 20px;}
+        #next {right: 20px;}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="imglist" style="left: -500px;">
+		<img src="img/4.jpg" alt="4">
+		<img src="img/1.jpg" alt="1">
+		<img src="img/2.jpg" alt="2">
+		<img src="img/3.jpg" alt="3">
+		<img src="img/4.jpg" alt="4">
+		<img src="img/1.jpg" alt="1">
+	</div>
+
+	<div class="btn">
+		<span index="1" class="on"></span>
+		<span index="2"></span>
+		<span index="3"></span>
+		<span index="4"></span>
+	</div>
+	<a href="javascript:;" id="prev" class="arrow">&lt</a>
+	<a href="javascript:;" id="next" class="arrow">&gt</a>
+</div>
+<script src="scripts/util.js"></script>
+<script src="scripts/task0002_3.js"></script>
+</body>
+</html>

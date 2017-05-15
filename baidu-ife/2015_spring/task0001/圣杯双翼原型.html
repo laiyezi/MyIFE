@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圣杯布局和双飞翼布局的共同点</title>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+
+	.main{background-color: red;height: 200px;width:100%;float: left;}
+	.sub{background-color: green;height: 200px;width: 200px;float: left;margin-left: -100%;}
+	.extra{background-color: blue;height: 200px;width: 300px;float: left;margin-left: -300px;}	
+	</style>
+</head>
+<body>
+<div class="bd">
+	<div class="main">main</div>
+	<div class="sub">sub：原型利用浮动，sub:margin-left:-100%到最左边，extra:margin-left：-300px（大于自身width才能上来）,到这一步main宽度100%，两边被sub，extra盖住，还需要调整让main出来，接下来就是圣杯和双翼两种解决方案
+	</div>
+	<div class="extra">extra</div></div>
+</div>	
+</body>
+</html>

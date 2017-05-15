@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>	
+</head>
+<body>
+	<!-- 界面首先有一个文本输入框，允许按照特定的格式YYYY-MM-DD输入年月日；
+	输入框旁有一个按钮，点击按钮后，计算当前距离输入的日期的00:00:00有多少时间差
+	在页面中显示，距离YYYY年MM月DD日还有XX天XX小时XX分XX秒
+	每一秒钟更新倒计时上显示的数
+	如果时差为0，则倒计时停止 -->
+
+	<div class="container">
+		<h1>当前系统时间</h1>
+		<p id="now"></p>
+		<h2>截止日期</h2>
+		<input type="date" value="2020-01-01">
+		<button>提交</button>
+		<div class="show"></div>
+	</div>
+<script src="scripts/util.js"></script>
+<script src="scripts/task0002_2.js"></script>
+</body>
+</html>

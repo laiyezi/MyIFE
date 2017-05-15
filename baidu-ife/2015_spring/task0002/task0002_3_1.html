@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图2</title>
+	<style type="text/css">
+		.container {
+			margin: 0 auto;
+			width: 450px;
+			height: 300px;
+			overflow: hidden;
+			position: relative;
+		}
+		.imgList {
+			width: 1800px;
+			height: 300px;
+			position: absolute;			
+		}
+		.imgList img{
+			float: left;
+		}
+		.circle {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			margin-left: -45px;
+		}
+		.circle a {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 10px;
+			border: 1px solid #fff;
+		}
+		.active {
+			background-color: #fff;
+			cursor: default;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="imgList" style="left: 0;">
+			<img src="img/a.jpg" alt="蜜蜂">
+			<img src="img/c.jpg" alt="蝴蝶">
+			<img src="img/d.jpg" alt="蒲公英">
+			<img src="img/e.jpg" alt="水滴">
+		</div>
+		<div class="circle">
+			<a href="javascript:;" class="active"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+
+		</div>
+	</div>
+	<script src="scripts/util.js"></script>
+	<script src="scripts/task0002_3_1.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>圣杯布局</title>
+        <style type='text/css'>
+        *{margin: 0;padding: 0;}
+      #bd{
+        padding: 0 300px 0 200px;
+      }
+      .main{background-color: #ccc;height:300px;width: 100%;float: left;}
+      .sub{background-color: red;height:300px;width: 200px;float: left;margin-left: -100%;position: relative;left: -200px;}
+      .extra{background-color: blue;height:300px;width: 300px;float: left;margin-left: -300px;position: relative;right: -300px;}
+      </style>
+    </head>
+    <body>
+      <div id="page">    
+        <div id="hd"></div>    
+           <div id="bd">        
+                <div class="main">main：在原型基础上，父box(bd)padding:0 extra的width 0 sub的width,收缩大小，让出两边位置，sub和extra利用position:relative,负边距移动到两边，完成布局
+                </div>        
+                <div class="sub">sub</div>        
+                <div class="extra">extra</div>    
+           </div>   
+        <div id="ft"></div>
+      </div>
+    </body>
+</html>
