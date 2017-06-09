@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务六：基础javascript练习(三)</title>
+</head>
+<style>
+    .container {
+     	width: 900px;
+    	height: 600px;   	
+    	margin: 0 auto;
+    	border: 1px solid #aaa;
+    }
+    #txt,#handl,#search {
+    	text-align: center;
+ 	
+    }
+    #show {
+    	display: -webkit-flex;/*webkit内核浏览器*/
+    	display: flex;
+        flex-flow: row wrap;/*水平主轴，左到右，换行，flex-direction和flex-wrap的简写形式,前确定主轴，后确定换行*/   
+    }
+	.text-show {
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		height: 30px;
+		padding: 5px;
+		margin: 5px;
+		background-color: #eee;
+	}
+	.search-show {
+		background-color: yellow;
+	}
+</style>
+<body>
+	<div class="container">
+	        <div id="txt">
+		 		<p>请输入您的内容:</p>
+		        <textarea name="" id="txt-input" cols="30" rows="3">	
+		        </textarea>      	
+	        </div>
+
+			<div id="handl">
+				<button id="l-insert" class="insert">左侧入</button>
+				<button id="r-insert" class="insert">右侧入</button>
+				<button id="l-delete" class="delete">左侧出</button>
+				<button id="r-delete" class="delete">右侧出</button>	
+			</div>
+
+	        <div id="search">
+	            <label>请输入你要查找的内容：</label>
+	        	<input type="text" id="txt-search">
+	        	<button type="submit" id="btn">查找</button>
+	        </div>			
+        
+
+        
+		<div id="show">	
+		</div>
+	</div>
+
+
+<script>
+	function $(id) {
+		return document.getElementById(id);
+	}
+	var txtinput = $('txt-input');
+	var linsert = $('l-insert');
+	var rinsert = $('r-insert');
+	var ldelete = $('l-delete');
+	var rdelete = $('r-delete');
+    var show = $('show');
+    var txt_search = $('txt-search');
+    var btn = $('btn');
+    var txt_search = $('txt-search');
+    var btn = $('btn');
+
+    var spans = show.getElementsByTagName('span');
+    var texts = [];
+ 
+//--------------左插入-------------
+    linsert.onclick = function() {  
+         var textarr = txtinput.value.split(/\n|\s+|,|，|、|;|；/);
+         var text = [];
+         var i,j;       
+        for (i = textarr.length-1; i >= 0; i--) {
+        	if (textarr[i] !== '') {
+        		texts.unshift(textarr[i]);
+        		text.unshift(textarr[i]);
+        	}
+        }
+        for (j = text.length-1; j >= 0 ; j--) {
+	    	var txt = document.createTextNode(text[j]);
+	    	var span = document.createElement("span");
+	        span.appendChild(txt);
+
+	        span.className = "text-show";//添加类名
+	    	show.insertBefore(span, show.firstChild);
+        }
+       txtinput.value = '';      	
+    };
+//--------------右插入------------ 
+	rinsert.onclick = function() {
+         var textarr = txtinput.value.split(/\n|\s+|,|，|、|;|；/);
+         var text = [];
+         var i,j;
+        
+        for (i = 0; i < textarr.length; i++) {
+        	if (textarr[i] !== '') {
+        		texts.push(textarr[i]);
+        		text.push(textarr[i]);
+        	}
+        }
+        
+        for (j = 0; j < text.length; j++) {
+
+        	var txt = document.createTextNode(text[j]);
+        	var span = document.createElement("span");
+        	span.appendChild(txt);
+
+            span.className = "text-show";
+        	show.appendChild(span);
+        }
+
+        txtinput.value = '';
+        
+	};
+ 
+/*
+*删除也可以用showdiv的firstChild和lastChild选取左侧和右侧元素，
+*但是第一次右删除时失败，show.lastChild为空字符串，以后正常。
+*/
+
+// ------------左删除--------------
+    ldelete.onclick = function() { 
+	       	
+        if (spans.length > 0){
+	 	    var lspan = spans[0];
+		    var txt = lspan.innerHTML;
+
+	        texts.shift();
+
+	        show.removeChild(lspan);
+	        alert(txt);        	
+        } else {
+        	alert("小明你下课来一下，空的你还删什么！");
+
+        }
+    };
+//-------------右删除----------------
+    rdelete.onclick = function() {
+	   
+    	if (spans.length > 0) {
+	    	var rspan = spans[spans.length-1];
+	    	var txt = rspan.innerHTML;
+
+	    	texts.pop();
+
+	    	show.removeChild(rspan);
+	    	alert(txt);     		
+    	} else {
+        	alert("小明你下课来一下，空的你还删什么！");
+    	}
+
+    };
+
+
+	// 正则实现去除左右空格
+	function trim(str) {
+	  var result = "";
+	  result = str.replace(/^\s+|\s+$/g,"");
+	  return result;
+	}	
+
+// ------------搜索-----------------
+btn.onclick = function() {
+	var str = '';
+	var inputValue = txt_search.value;
+	
+    
+	for (var j = 0; j < spans.length; j++) {
+		removeClass(spans[j], "search-show");
+	}
+   
+	for (var i = 0; i < texts.length; i++) {
+		var pos = texts[i].indexOf(inputValue);
+		if (pos != -1){
+			addClass(spans[i], 'search-show');
+		    
+		}
+	}
+}
+
+
+
+function addClass(element, newClassName) {
+	if (!element.className) {
+		element.className = newClassName;
+	} else {
+		var oldClassName = element.className;
+		element.className = oldClassName + ' ' + newClassName;
+	}
+}
+function removeClass(element, oldClassName) {
+	var elements = element.className;
+	var reg = new RegExp("\\b" + oldClassName + "\\b");
+	element.className = trim(elements.replace(reg,""));
+}
+function trim(str) {
+	var result = '';
+	result = str.replace(/^\s+|\s+$/g, '');
+	return result;
+}
+</script>
+</body>
+</html>

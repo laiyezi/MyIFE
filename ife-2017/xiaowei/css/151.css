@@ -1,0 +1,142 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #eef;
+}
+header {
+	background: #555 ; 
+	height: 60px;
+	width: 100%;
+}
+header img{
+	height: 40px;
+	padding-left: 40px;
+	margin-top: 10px;
+
+}
+nav{
+	float: right;
+}
+nav li{
+	float: left;
+	list-style: none;
+	text-align: center;
+}
+nav a{
+	display: block;
+	width: 100px;
+	color: white;
+	text-decoration: none;
+	font-size: 12px;
+}
+a:hover {color: #bbf;}
+
+main {
+	margin: 20px;
+	
+}
+
+
+aside {
+	width: 400px;
+	float: right;
+	background-color: white;
+	box-shadow: 2px 2px 2px 2px #848484;
+
+}
+aside form{
+	font-size: 14px;
+}
+aside h4 {
+	margin-left: 20px;
+    border-left: 5px solid #dedede;
+    padding: 10px;
+}
+
+
+aside label {
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    width: 35%;
+}
+aside label, aside input, aside select{
+	margin-top: 10px;
+}
+aside p {
+	margin-left: 35%;
+	color: #555;
+}
+aside textarea {
+	margin: 15px 0 15px 0;
+}
+aside button {
+	border: 1px solid #554EF1;
+	border-radius: 10px;
+	width: 90%;
+	margin: 0 20px 20px 20px;
+	background-color: #3B4AF7;
+	font-size: 20px;
+	line-height: 35px;
+	color: white;
+}
+.article{
+	margin-right: 420px;
+}
+article{
+	padding: 25px 20px;
+	margin-bottom: 20px;
+	background-color: white;
+	box-shadow: 2px 2px 2px 2px #848484;
+}
+
+article ul li {
+	list-style: none;
+	margin-top: 10px;
+}
+figure {
+	display: inline-block;
+	border: 1px solid rgb(110,120,119);
+	width: 130px;
+	height: 130px;
+	padding: 5px;
+	text-align: center;
+}
+figure img {
+	width: 120px;
+	height: 100px;
+}
+article ol li {
+	list-style-type: decimal;
+}
+
+article table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+}
+article thead {
+	background-color: #333;	
+	color: white;
+}
+article th,td {
+	height: 24px;
+	padding-left: 6px;
+	border: 1px solid #dedede;
+}
+article tfoot {
+	background-color: #dedede;
+	font-weight: bold;
+}
+
+
+footer {
+	width: 100%;
+	height: 50px;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+	font-size: 12px;
+	font-weight: bold;
+}

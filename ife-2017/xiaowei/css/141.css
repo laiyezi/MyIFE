@@ -1,0 +1,41 @@
+/*position:absolute;
+left:50%;
+right:50%;
+transform: translate(-50%, -50%);
+也可以实现垂直居中*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+.box{
+	width: 400px;
+	height: 200px;
+	background-color: #ccc;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -100px;
+	margin-left: -200px;
+	overflow: hidden;
+
+
+}
+.left-top,.right-bottom{
+	width: 100px;
+	height: 100px;
+	background-color: #fc0;
+	border-radius: 50%;
+}
+.left-top{
+	position: absolute;
+	left: -50px;
+	top: -50px;
+
+}
+.right-bottom{
+	position: absolute;
+	left: 350px;
+	top: 150px;
+
+}

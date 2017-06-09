@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务七：js和树（一）</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 20px;
+		background: #fff;
+	}
+	.level1{
+		margin: 20px auto;
+		width: 900px;
+		height: 400px;
+		border: 1px solid #000;
+	}
+	.level2{
+		width: 420px;
+		height: 300px;
+		border: 1px solid #000;
+	}
+	.level3{
+		width: 160px;
+		height: 200px;
+		border: 1px solid #000;
+
+	}
+	.level4{
+		width: 40px;
+		height: 50px;
+		border: 1px solid #000;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="level1">
+
+		<div class="level2">
+			<div class="level3">
+				<div class="level4"></div>
+				<div class="level4"></div>
+			</div>
+
+			<div class="level3">
+				<div class="level4"></div>
+				<div class="level4"></div>
+			</div>
+		</div>
+
+		<div class="level2">
+			<div class="level3">
+				<div class="level4"></div>
+				<div class="level4"></div>
+			</div>
+
+			<div class="level3">
+				<div class="level4"></div>
+				<div class="level4"></div>
+			</div>
+		</div>
+	</div>
+	<div class="btn">
+		<button id="DLR">前序(根-左-右)</button>
+		<button id="LDR">中序(左-根-右)</button>
+		<button id="LRD">后序(左-右-根)</button>
+		<button id="BFS">分层遍历</button>
+	</div>
+
+
+
+<script>
+
+var nodeArr = [];
+var timer = null;
+var times = 500;
+
+//----------------- 添加事件---------------------
+$("#DLR").onclick = function() {
+    init();
+	dlr($(".level1"));
+
+	show();
+};
+$("#LDR").onclick = function() {
+    init();
+	ldr($(".level1"));
+	show();
+};
+$("#LRD").onclick = function() {
+    init();
+	lrd($(".level1"));
+	show();
+
+};
+
+$("#BFS").onclick = function() {
+	init();
+	bfs($(".level1"));
+	show();
+
+}
+
+function $(id) {
+	return document.querySelector(id);
+}	
+
+
+//----------------- 树遍历---------------------------
+// 分层遍历
+function bfs(node) {
+	if(node !== null) {
+		var levelarr = [];
+
+		var currentNode = node;
+		nodeArr.push(currentNode);
+
+		while(currentNode) {
+			var len = currentNode.children.length;
+
+			if (len !== 0) {
+				for (var i = 0; i < len; i++){
+					nodeArr.push(currentNode.children[i]);
+					levelarr.push(currentNode.children[i]);//把子节点加入待遍历数组
+				}
+			}
+			currentNode = levelarr.shift();//每次从待遍历数组中取一个出来，shift()是为了从左到右遍历。
+
+		}		
+	}
+
+
+}
+// 先序遍历DLR
+function dlr(node) {
+	if (node !== null) {
+		nodeArr.push(node);
+		dlr(node.firstElementChild);
+		dlr(node.lastElementChild);
+	}
+}
+
+// 中序遍历LDR
+function ldr(node) {
+	if (node !== null) {
+		ldr(node.firstElementChild);
+		nodeArr.push(node);
+		ldr(node.lastElementChild);
+	}
+}
+// 后序遍历LRD
+function lrd(node) {
+	if (node !== null) {
+		lrd(node.firstElementChild);
+		lrd(node.lastElementChild);
+		nodeArr.push(node);
+	}
+}
+
+
+
+
+// 初始化
+function init() {
+	clearInterval(timer);
+	for (var i = 0; i < nodeArr.length; i++) {
+		nodeArr[i].style.background = "#fff";
+	}		
+	nodeArr = [];
+}
+// 改变颜色
+function show() {
+	var i = 0;
+	timer = setInterval(function() {
+		if (i < nodeArr.length) {
+			var a = nodeArr[i];
+            a.style.background = '#abc';
+
+            setTimeout(function(){
+            	a.style.background = '#fff';
+            }, times);
+
+            i++;
+		} else {
+			clearInterval(timer);
+		}
+	}, times);
+}
+
+
+</script>
+</body>
+</html>

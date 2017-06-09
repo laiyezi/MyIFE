@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务八：js和树（二）</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 10px;
+		background: #fff;
+	}
+	.level1{
+		margin: 20px auto;
+		width: 1200px;
+		height: 500px;
+		border: 1px solid #000;
+	}
+	.level2{
+		width: 420px;
+		height: 300px;
+		border: 1px solid #000;
+	}
+	.level3{
+		width: 160px;
+		height: 200px;
+		border: 1px solid #000;
+
+	}
+	.level4{
+		width: 40px;
+		height: 50px;
+		border: 1px solid #000;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="level1">
+    1
+        <div class="level2">
+        2	
+        </div>
+		<div class="level2">
+		3
+			<div class="level3">
+			5
+				<div class="level4">10</div>
+				<div class="level4">11</div>
+				<div class="level4">12</div>
+			</div>
+
+			<div class="level3">
+			6
+				<div class="level4">13</div>
+				<div class="level4">14</div>
+			</div>
+		</div>
+
+		<div class="level2">
+		4
+			<div class="level3">
+			7
+				<div class="level4">15</div>
+				<div class="level4">16</div>
+				<div class="level4">17</div>
+			</div>
+
+			<div class="level3">
+			8
+				<div class="level4">18</div>
+				<div class="level4">19</div>
+			</div>
+			<div class="level3">
+			11	
+			</div>
+		</div>
+	</div>
+	<div class="btn">
+	    <input type="text" id="input-search" placeholder="请输入你要查找的内容">
+		<button id="DFS">深度优先遍历搜索(Depth-First-Search)</button>
+		<button id="BFS">广度优先遍历搜索(Breadth-First-Search)</button>
+		
+	</div>
+
+
+
+<script>
+
+var nodeArr = [];
+var timer = null;
+var times = 500;
+
+//----------------- 添加事件---------------------
+
+$("#DFS").onclick = function() {
+    init();
+    var val = trim($("#input-search").value);
+	dfs($(".level1"));
+	
+	show(val);		
+
+
+};
+
+$("#BFS").onclick = function() {
+	init();
+	var val = trim($("#input-search").value);
+	bfs($(".level1"));
+
+	show(val);		
+
+
+
+}
+
+	
+
+
+//----------------- 树遍历---------------------------
+// 深度优先遍历
+function dfs(node) {
+	if (node !== null) {
+		nodeArr.push(node);
+		if (node.children.length !== 0) {
+			for (var i = 0; i < node.children.length; i++) {
+				dfs(node.children[i]);
+			}
+		}		
+	}
+
+}
+
+// 广度优先遍历
+function bfs(node) {
+	if (node != null) {
+		var levelArr = [];
+		nodeArr.push(node);
+		var currentNode = node;
+
+		while (currentNode) {
+			var len = currentNode.children.length;
+			for (var i = 0; i < len; i++) {
+				nodeArr.push(currentNode.children[i]);
+				levelArr.push(currentNode.children[i]);
+			}
+			currentNode = levelArr.shift();
+		}
+
+	}
+}
+
+
+
+function $(id) {
+	return document.querySelector(id);
+}
+
+// 去除首尾空格
+function trim(str) {
+	var result = '';
+	result = str.replace(/^\s+|\s+$/g, '');
+	return result;
+}
+// 初始化
+function init() {
+	clearInterval(timer);
+	for (var i = 0; i < nodeArr.length; i++) {
+		nodeArr[i].style.background = "#fff";
+	}		
+	nodeArr = [];
+}
+
+
+// 改变颜色
+
+function show(val) {
+
+    var count = 0;
+	var i = 0;
+	timer = setInterval(function() {
+		if (i < nodeArr.length) {
+			var node = nodeArr[i];
+            var txt=trim(node.firstChild.nodeValue)
+
+            if(val == txt) {
+	            node.style.background = '#abc';
+	            count++;
+            	// clearInterval(timer);
+            	// alert("找到了");
+            }else{
+	            node.style.background = '#abc';
+            	setTimeout(function(){
+	            	node.style.background = '#fff';
+	            }, times);
+            }
+            
+            i++;
+
+		} else {
+			alert("找到了"+ count+"个");
+			clearInterval(timer);
+		}
+	}, times);
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #eef;
+}
+header {
+	background: #555 ; 
+	height: 60px;
+}
+header img{
+	height: 40px;
+	padding-left: 40px;
+	margin-top: 10px;
+
+}
+nav{
+	float: right;
+}
+nav li{
+	float: left;
+	list-style: none;
+	text-align: center;
+}
+nav a{
+	display: block;
+	width: 100px;
+	color: white;
+	text-decoration: none;
+	font-size: 12px;
+}
+a:hover {color: #bbf;}
+
+main {
+	margin: 0 auto;
+	width: 96%;
+}
+article,aside,footer{
+    border: 1px solid rgb(110,119,120);
+    margin-top: 20px;
+    background-color: white;
+    padding: 25px 20px;
+}
+
+article ul li {
+	list-style: none;
+	margin-top: 10px;
+}
+figure {
+	border: 1px solid rgb(110,120,119);
+	width: 260px;
+	text-align: center;
+}
+article ol li {
+	list-style-type: decimal;
+}
+
+article table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+}
+article thead {
+	background-color: #333;	
+	color: white;
+}
+article th,td {
+	height: 24px;
+	padding-left: 6px;
+	border: 1px solid #dedede;
+}
+article tfoot {
+	background-color: #dedede;
+	font-weight: bold;
+}
+
+
+/*aside*/
+aside h3 {
+    border-left: 5px solid #dedede;
+    padding: 6px;
+}
+
+
+aside label {
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    width: 45%;
+}
+aside label, aside input, aside select{
+	margin-top: 10px;
+}
+aside p {
+	margin-left: 45%;
+	color: #555;
+}
+aside textarea {
+	margin: 15px 0 15px 0;
+}
+aside button {
+	border: 1px solid #554EF1;
+	border-radius: 10px;
+	width: 100%;
+	background-color: #3B4AF7;
+	font-size: 25px;
+	color: white;
+}
+
+footer {
+	height: 35px;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+

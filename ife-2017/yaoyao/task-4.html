@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务四：听指令的小方块（一）</title>
+	<style>
+	    .main{
+	    	width: 80%;
+	    	margin: 50px auto;
+	    	display: flex;
+	    	justify-content: space-between;
+	    }
+		table{
+			margin: 0 auto;
+			/*border-spacing: 0;   表格的边框间距*/
+			border-collapse: collapse;/*collapse:边框合并为单一边框*/
+		
+		}
+		td{
+			box-sizing: border-box;
+			width: 50px;
+			height: 50px;
+			text-align: center;
+			border: 1px solid #ccc;
+			position: relative;
+		}
+        .block{
+        	box-sizing: border-box;
+        	width: 50px;
+        	height: 50px;
+        	border-top: 15px solid blue;
+        	background-color: red;
+        	transition: all 1s;
+        }
+        .btn{
+        	background-color: #3B4AF7;
+        	color: white;
+        	width: 100px;
+        	height: 30px;
+        }
+
+	</style>
+</head>
+<body>
+<div class="main">
+	<div class="box">
+		<table id="map">
+			<tr>
+				<td></td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				
+				<td>
+					<div class="block" id="target" style="transform: rotate(90deg);position: absolute;top: 0;left: 0"></div>
+				</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div class="contral">
+		<button class="btn" id="go">GO</button>
+		<button class="btn" id="turn-left">TUN LEFT</button>
+		<button class="btn" id="turn-right">TUN RIGHT</button>
+		<button class="btn" id="turn-back">TUN BACK</button>
+	</div>
+</div>
+
+<script src="js/task-4.js"></script>
+</body>
+</html>

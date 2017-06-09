@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务七：UI组件之排序表</title>
+	<style>
+	    #tab{
+	    	/*合并单一边框*/
+	    	border-collapse:collapse;
+	    	border: 1px solid #fff;
+	    	margin: 30px;
+	    }	
+	    #tab td{
+	    	width: 120px;
+	    	height: 40px;
+	    	text-align: center;
+	    	border: 1px solid #ccc;
+	    }
+	    #tab thead{
+	    	background-color: #3af;
+	    	color:#fff;
+	    }
+
+	    .upBtn{
+	    	position: relative;
+	    	left: 10px;
+	    	top: -7px;
+	    	display: inline-block;
+	    	width: 0;
+	    	height: 0;
+	    	border-bottom: 10px solid #fff;;
+	    	border-left: 10px solid transparent;
+	    	border-right: 10px solid transparent;
+
+	    }
+
+	    .downBtn{
+	    	position: relative;
+	    	left: -10px;
+	    	bottom: -5px;
+	    	display: inline-block;
+	    	width: 0;
+	    	height: 0;
+	    	border-top: 10px solid #fff;
+	    	border-left: 10px solid transparent;
+	    	border-right: 10px solid transparent;
+	    }
+
+
+	</style>
+</head>
+<body>
+<table border="1" id="tab"></table>
+	<script src="js/task-7.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>基础javascript练习一</title>
+</head>
+<style>
+  #handl {
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+  }
+  .num-show {
+    
+    width: 20px;
+    margin-left: 5px;
+    background-color: red;
+    text-align: center;
+    
+
+ 
+  }
+  #show {
+    display: -webkit-flex;/*webkit内核浏览器*/
+    display: flex;
+    align-items: flex-end;
+    width: 1100px;
+    height: 600px;
+    border: 1px solid #aaa;
+    margin: 0 auto;
+
+  }
+</style>
+<body>
+  <div class="container">
+    <div id="handl">
+      <label>请输入您想放入的数字：</label>
+      <input type="text" id="num-input" placeholder="请输入数字，范围10~100">
+
+      <button id="l-insert" class="insert">左侧入</button>
+      <button id="r-insert" class="insert">右侧入</button>
+
+      <button id="l-delete" class="delete">左侧出</button>
+      <button id="r-delete" class="delete">右侧出</button> 
+      
+      <button id="random">产生随机数</button>
+      <button id="bubble" class="sort">冒泡排序</button>
+      <button id="select" class="sort">选择排序</button>
+      <button id="s-sort" class="sort">从小到大排序</button>
+      <button id="l-sort" class="sort">从大到小排序</button>
+      
+    </div>
+    <div id="show"> 
+    </div>
+  </div>
+
+
+<script>
+
+
+
+  var numinput = document.getElementById('num-input');
+  var linsert = document.getElementById('l-insert');
+  var rinsert = document.getElementById('r-insert');
+  var ldelete = document.getElementById('l-delete');
+  var rdelete = document.getElementById('r-delete');
+  var s_sort = document.getElementById('s-sort');
+  var l_sort = document.getElementById('l-sort');
+  var bubble = document.getElementById('bubble');
+  var select = document.getElementById('select');
+  var random = document.getElementById('random');
+
+  var show = document.getElementById('show');
+  var divs = show.getElementsByTagName('div');
+  var nums = [];
+
+ //--------------左插入-------------
+ //判断输入用正则更简单一点，写复杂了
+
+    linsert.onclick = function() {
+        var num = trim(numinput.value);
+        
+        
+        if (isNaN(num) | num == ''){
+
+          alert("您的输入有误，请确保您输入的是数字，且一次只能输入一个数字");
+          numinput.value = '';
+
+        } else if (num < 10 || num > 100) {
+
+          alert("请确保您输入的数字在10 ~ 100之间");
+          numinput.value = '';
+
+        } else if (nums.length > 60){
+
+          alert("输入总数不能超过60个");
+
+        } else {
+
+          nums.unshift(num);
+          // console.log(nums);
+          var txt = document.createTextNode(num);
+          var div = document.createElement("div");
+          div.appendChild(txt);
+
+          
+          div.style.height = num * 5 + 'px'; 
+          div.className = "num-show";
+          show.insertBefore(div, show.firstChild);
+
+          numinput.value = '';
+        }     
+    };
+//--------------右插入------------ 
+  rinsert.onclick = function() {
+
+        var num = trim(numinput.value);
+        
+        if (isNaN(num) | num == ''){
+
+          alert("您的输入有误，请确保您输入的是数字，且一次只能输入一个数字");
+          numinput.value = '';
+
+        } else if (num < 10 || num > 100) {
+
+          alert("请确保您输入的数字在10 ~ 100之间");
+          numinput.value = '';  
+
+        } else if (nums.length > 60){
+        
+          alert(输入总数不能超过10个);
+        
+        } else {
+
+          nums.push(num);
+          // console.log(nums);
+          var txt = document.createTextNode(num);
+          var div = document.createElement("div");
+          div.appendChild(txt);
+
+          div.style.height = num * 5 + 'px';
+          div.className = "num-show";
+          show.appendChild(div);
+
+          numinput.value = '';
+        }
+  };
+ 
+/*
+*删除也可以用showdiv的firstChild和lastChild选取左侧和右侧元素，
+*但是第一次右删除时失败，show.lastChild为空字符串，以后正常。
+*/
+
+// ------------左删除--------------
+    ldelete.onclick = function() { 
+     
+           
+        if (divs.length > 0){
+
+          var ldiv = divs[0];
+          var txt = ldiv.innerHTML;
+
+          nums.shift();
+          // console.log(nums);
+
+          show.removeChild(ldiv);
+          alert(txt); 
+
+        } else {
+          alert("小明你下课来一下，空的你还删什么！");
+        }
+    };
+//-------------右删除----------------
+    rdelete.onclick = function() {
+      
+      if (divs.length > 0) {
+      
+        var rdiv = divs[divs.length-1];
+        var txt = rdiv.innerHTML;
+
+        nums.pop();
+        // console.log(nums);
+        
+        show.removeChild(rdiv);
+        alert(txt); 
+
+      } else {
+          alert("小明你下课来一下，空的你还删什么！");
+      }
+      
+
+
+    };
+
+ //-----------------js原生排序-------------------
+  s_sort.onclick = function() {
+    var sortnums = nums.sort(function(a, b){
+      return a - b;
+    });
+
+    for (var i = 0; i < divs.length; i++) {
+      divs[i].style.height = sortnums[i] * 5 + 'px';
+      divs[i].innerHTML = sortnums[i];
+    }
+  };
+  l_sort.onclick = function() {
+    var sortnums = nums.sort(function(a, b) {
+      return b - a;
+    });
+    // console.log(sortnums);
+    for (var i = 0; i < divs.length; i++) {
+      divs[i].style.height = sortnums[i] * 5 + 'px';
+      divs[i].innerHTML = sortnums[i];
+    }
+  };
+// --------------冒泡排序-------------
+  bubble.onclick = function() {
+    
+    var tmp,i,j;
+    var len = nums.length;
+
+    for (i = 0; i < len; i++) {
+      nums[i] = parseInt(nums[i]); 
+    } 
+
+    j = 0;
+    var timer = setInterval(function(){
+    //j++控制冒泡内部小循环，比较数组大小，len--控制外部大循环，需要遍历几次，
+          if (j == len - 1) {
+               j = 0;
+               len--; 
+          }
+          if (nums[j] > nums[j+1]) {
+            tmp = nums[j];
+            nums[j] = nums[j+1];
+            nums[j+1] = tmp;
+            
+            divs[j].style.height = nums[j] * 5 + "px";
+            divs[j].innerHTML = nums[j];
+            divs[j+1].style.height = nums[j+1] * 5 + "px";
+            divs[j+1].innerHTML = nums[j+1];
+
+          }
+        
+          j++
+        if (len < 1) {
+          clearInterval(timer);
+        }
+
+    },500);
+   
+  };
+// ------------------选择排序------------
+  select.onclick = function() {
+    var i,j,k,min;
+    var len = nums.length;
+    for (i = 0; i < len; i++) {
+      nums[i] = parseInt(nums[i]); 
+    }
+    j = 0;
+    var timer = setInterval(function() {
+      
+      min = j;
+
+      for ( k = j + 1; k < len; k++) {
+        if (nums[k] < nums[min]) {
+          min = k;
+        }
+      }
+      if(min !== j) {
+        var tmp = nums[j];
+        nums[j] = nums[min];
+        nums[min] = tmp;       
+      }
+ 
+        divs[j].innerHTML = nums[j];
+        divs[j].style.height = nums[j] * 5 + 'px';
+        divs[min].innerHTML = nums[min];  
+        divs[min].style.height = nums[min] * 5 + 'px';
+      
+
+      j++;
+      if (j >= len-1) {
+         clearInterval(timer);
+         console.log(nums);
+      }  
+    },500);
+
+  };
+
+
+
+//------------生成一组随机数---------------
+  random.onclick = function() {
+    
+    var count = Math.round(Math.random()*30 + 10);
+
+    for (var i = 0; i < count; i++) {
+      nums[i] = Math.floor(Math.random()*90 + 10);
+
+      var txt = document.createTextNode(nums[i]);
+      var div = document.createElement("div");
+      div.appendChild(txt);
+
+          
+      div.style.height = nums[i] * 5 + 'px'; 
+      div.className = "num-show";
+      show.appendChild(div);
+    }
+
+  };
+
+// 正则实现去除左右空格
+  function trim(str) {
+    var result = "";
+    result = str.replace(/^\s+|\s+$/g,"");
+    return result;
+  }
+  
+
+
+//-------------------三种算法实现-------------------------
+// 冒泡排序
+function bubbleSort(arr) {
+    var len = arr.length;
+  while (len > 1) {
+    for (var i = 0; i< len - 1; i++) {
+      if (arr[i] > arr[i+1]){
+        var tmp = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = tmp;
+      }
+    }
+    len--;
+  }
+  
+  return arr;
+}
+
+
+// 选择排序
+function selectSort(arr){
+  for (var i = 0; i < arr.length; i++) {
+    var min = i;
+    for(var j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+              min = j;
+      }
+    }
+    if (min != i){
+      var tmp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = tmp;
+    }
+    }
+    return arr;
+}
+
+// 插入排序
+function insertSort(arr) {
+  for (var i = 1; i < arr.length; i++){
+    var tmp = arr[i];
+    var j = i - 1;
+    while (j >= 0 && arr[j] > tmp) {
+      arr[j+1] = arr[j];
+      j--;
+    }
+    a[j+1] = tmp;
+  }
+
+  return arr;
+}
+
+
+
+</script>
+</body>
+</html>

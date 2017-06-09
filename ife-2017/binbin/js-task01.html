@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
+  <button id="button">确认填写</button>
+
+  <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+<script type="text/javascript">
+
+(function() {
+  /*    
+  在注释下方写下代码
+  给按钮button绑定一个点击事件
+  在事件处理函数中
+  获取aqi-input输入的值，并显示在aqi-display中
+  */
+
+
+  //得到button标签
+  var btn = document.getElementById('button');
+  
+
+  // 给button绑定onclick事件
+  btn.onclick = function () {
+
+    //获取input输入值
+    var aqivalue = document.getElementById("aqi-input").value;
+    
+    // 输入值去除两边空格，判断输入是否为空
+    if (trim(aqivalue) != "") {
+       
+        // 得到span标签
+        var aqidisplay = document.getElementById("aqi-display");
+        
+        // 改变span标签的文本
+        aqidisplay.innerHTML = aqivalue;
+    }
+  };
+
+})();
+
+
+// 正则实现去除左右空格
+function trim(str) {
+  var result = "";
+  result = str.replace(/^\s+|\s+$/g,"");
+  return result;
+}
+</script>
+</body>
+</html>

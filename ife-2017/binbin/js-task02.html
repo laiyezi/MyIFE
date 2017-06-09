@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list-c">
+
+  </ul>
+  <h3>空气优良城市列表</h3>
+  <ul id="aqi-list-a">
+    
+  </ul>
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+(function () {
+
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+
+  //首先对数组进行排序，按污染值从大到小排序
+  aqiData.sort(function(a,b){
+    return b[1] - a[1];
+  })
+  
+  var zh = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+  var ccity = [];
+  var acity = [];
+  // 分两类，1类空气污染，1类空气良好
+  for (var i = 0; i < aqiData.length; i++) { 
+
+    if (aqiData[i][1] > 60) {
+
+      ccity.push(aqiData[i]);//污染的从大到小 依次加入到 数组末尾，从大到小排序
+
+    } else {
+      acity.unshift(aqiData[i]);//污染值从大到小 依次加入到 数组开始，从小到大排序
+    }
+  }
+
+  //污染排名
+  for (var j = 0; j < ccity.length;j++) {
+    // 创建文本节点
+    var text = "第"+zh[j]+"名 "+ccity[j][0] +" ：" + ccity[j][1];
+    var txt = document.createTextNode(text);
+    // 创建li元素节点
+    var li = document.createElement("li");
+    // 把文本追加到li里面
+    li.appendChild(txt);
+    
+    // 把li追加到aqi-list-c的元素里
+    var aqic = document.getElementById('aqi-list-c');
+    aqic.appendChild(li);
+  }
+
+  // 空气良好排名
+  for (var k = 0; k < acity.length;k++) {
+    var text = "第"+zh[k]+"名 "+acity[k][0] +" ：" + acity[k][1];
+    var txt = document.createTextNode(text);
+    var li = document.createElement("li");
+    li.appendChild(txt);
+    
+    var aqia = document.getElementById('aqi-list-a');
+    aqia.appendChild(li);
+  }
+
+
+})();
+
+</script>
+</body>
+</html>

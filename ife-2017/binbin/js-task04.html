@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础javascript练习一</title>
+</head>
+<style>
+	.num-show {
+		text-align: center;
+		width: 50px;
+		height: 50px;
+		margin-left: 10px;
+		background-color: red;
+		/*float: left;*/
+		display: inline-block;
+		line-height: 50px;
+	}
+</style>
+<body>
+	<div class="container">
+		<div id="handl">
+			<label>请输入您想放入的数字：</label>
+			<input type="text" id="num-input">
+
+			<button id="l-insert" class="insert">左侧入</button>
+			<button id="r-insert" class="insert">右侧入</button>
+
+			<button id="l-delete" class="delete">左侧出</button>
+			<button id="r-delete" class="delete">右侧出</button>	
+		</div>
+		<div id="show">	
+		</div>
+	</div>
+
+
+<script>
+	var numinput = document.getElementById('num-input');
+	var linsert = document.getElementById('l-insert');
+	var rinsert = document.getElementById('r-insert');
+	var ldelete = document.getElementById('l-delete');
+	var rdelete = document.getElementById('r-delete');
+    var show = document.getElementById('show');
+    var ps = show.getElementsByTagName('p');
+    var num = '';
+ 
+ //--------------左插入-------------
+    linsert.onclick = function() {
+        //去除输入两侧空格
+         num = trim(numinput.value);
+        
+        //对输入字符进行判断，排除空格和非数字输入       
+        if (isNaN(num) | num == ''){
+        	alert("您的输入有误，请确保您输入的是数字，且一次只能输入一个数字");
+        	numinput.value = '';//输入框清空
+        } else {
+
+        	var txt = document.createTextNode(num);
+        	var p = document.createElement("p");
+            p.appendChild(txt);
+
+            p.className = "num-show";//添加类名
+        	show.insertBefore(p, show.firstChild);
+
+            numinput.value = '';
+        }   	
+    };
+//--------------右插入------------ 
+	rinsert.onclick = function() {
+
+        num = trim(numinput.value);
+        
+        if (isNaN(num) | num == ''){
+        	alert("您的输入有误，请确保您输入的是数字，且一次只能输入一个数字");
+        	numinput.value = '';
+        } else {
+        	var txt = document.createTextNode(num);
+        	var p = document.createElement("p");
+        	p.appendChild(txt);
+
+            p.className = "num-show";
+        	show.appendChild(p);
+
+            numinput.value = '';
+        }
+	};
+ 
+/*
+*删除也可以用showdiv的firstChild和lastChild选取左侧和右侧元素，
+*但是第一次右删除时失败，show.lastChild为空字符串，以后正常。
+*/
+
+// ------------左删除--------------
+    ldelete.onclick = function() { 
+	       	
+        if (ps.length > 0){
+	 	    var lp = ps[0];
+		    var txt = lp.innerHTML;
+	        
+	        show.removeChild(lp);
+	        alert(txt);        	
+        } else {
+        	alert("小明你下课来一下，空的你还删什么！");
+
+        }
+    };
+//-------------右删除----------------
+    rdelete.onclick = function() {
+	   
+    	if (ps.length > 0) {
+	    	var rp = ps[ps.length-1];
+	    	var txt = rp.innerHTML;
+
+	    	show.removeChild(rp);
+	    	alert(txt);     		
+    	} else {
+        	alert("小明你下课来一下，空的你还删什么！");
+    	}
+   		
+
+
+    };
+
+
+	// 正则实现去除左右空格
+	function trim(str) {
+	  var result = "";
+	  result = str.replace(/^\s+|\s+$/g,"");
+	  return result;
+	}	
+</script>
+</body>
+</html>

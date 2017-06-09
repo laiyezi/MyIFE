@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务五：零基础HTML及css编码(二)</title>
+	<link rel="stylesheet" href="css/151.css">
+</head>
+<body>
+
+	<header>
+		<img src="img/bd_logo.png" alt="百度">
+		<nav>
+			<ul>
+				<li><a href="">导航连接一</a></li>
+				<li><a href="">导航连接二</a></li>
+				<li><a href="">导航连接三</a></li>
+				<li><a href="">导航连接四</a></li>
+			</ul>		
+		</nav>
+	</header>
+
+
+	<main>
+	    <aside>
+			<h4>这里以后是一个侧边栏，这里是侧栏的标题</h4>
+			
+            <form action="">
+            
+	            <label for="usremail">请输入邮箱地址：</label>
+
+	            <input type="email" id="usremail" placeholder="这是一个文本输入框">
+   	            
+   	            <p>邮箱地址请按要求格式输入</p>       	
+                
+
+  	            <label for="usrpassword">请输入密码：</label>
+
+	            <input type="password" id="usrpassword" placeholder="这是一个文本输入框">
+	            <br>     	
+           
+	            <label for="confirm">请重复输入密码：</label>
+
+	            <input type="password" id="confirm" placeholder="这是一个文本输入框">
+				
+				<p>密码请为6-16位英文数字</p>	           		
+	
+           
+	            <label>性别：</label>
+
+	            <input type="radio" name="sex" value="男">男
+	            <input type="radio" name="sex" value="女">女            	
+                <br>
+		        <label>城市：</label>
+	            <select name="" id="">
+	                <option value="北京" selected>北京</option>
+                	<option value="上海">上海</option>
+                	<option value="广州">广州</option>
+                	<option value="深圳">深圳</option>
+                	<option value="杭州">杭州</option>	
+	            </select>	        	
+	            <br>
+
+	            <label>爱好：</label>
+
+	            <input type="checkbox" value="运动" name="favorite">运动
+	            <input type="checkbox" value="艺术" name="favorite">艺术
+	            <input type="checkbox" value="科学" name="favorite">科学				
+			    <br>
+
+                <label>个人描述：</label>
+
+                <textarea name="description" id="description" cols="30" rows="6">这是一个多行输入框，输入您的个人描述</textarea>
+                <br>
+                <button type="submit">确认提交</button>           	
+                       	
+            </form>
+		</aside>
+
+	    <div class="article">
+		<article>
+			<h2>文章一级标题</h2>
+			<h3>文章二级标题</h3>
+			<span>文章作者 文章发表时间</span> 
+			<p>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，
+			</p>
+
+			<p>对于 section 和 article 的区分乍看比较难，<a href="http://frontenddev.org/link/section-and-article-how-to-choose-what-s-the-difference.html">可以参考http://frontenddev.org/link/section-and-article-how-to-choose-what-s-the-difference.html</a>其实重点就是看看这段内容脱离了整体是不是还能作为一个完整的、独立的内容而存在，这里面的<strong>重点又在完整身上</strong>。因为其实说起来 section包含的内容也能算作独立的一块，但是它只能算是组成整体的一部分，article 才是一个完整的整体。
+			</p>
+			<img src="img/zilaiye2.jpg" alt="自来也">
+			<p>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落.
+			</p>	
+			<p>这是一个很长的段落，这是一个很长的段落，<a href="http://ife.baidu.com" target="_bank">这里有一个新链接，打开后到达新窗口http://ife.baidu.com</a>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落</p>		
+		</article>
+
+		<article>
+			<h2>另一篇文章一级标题</h2>
+			<h3>文章二级标题</h3>
+			<span>文章作者 文章发表时间</span>
+			<p>figure标签规定独立的流内容（图像、图表、照片、代码等等）。figure 元素的内容应该与主内容相关，同时元素的位置相对于主内容是独立的。如果被删除，则不应对文档流产生影响。figcaption 标签为 figure 元素定义标题。figcaption 元素应该被置于 figure 元素的第一个或最后一个子元素的位置。
+			</p>
+
+			<p>对于 section 和 article 的区分乍看比较难，<a href="http://frontenddev.org/link/section-and-article-how-to-choose-what-s-the-difference.html">可以参考http://frontenddev.org/link/section-and-article-how-to-choose-what-s-the-difference.html</a>其实重点就是看看这段内容脱离了整体是不是还能作为一个完整的、独立的内容而存在，这里面的<strong>重点又在完整身上</strong>。因为其实说起来 section包含的内容也能算作独立的一块，但是它只能算是组成整体的一部分，article 才是一个完整的整体。
+			</p>
+			<img src="img/zilaiye2.jpg" alt="自来也">
+			<ul>
+				<li>列表项目一</li>
+				<li>列表项目二</li>
+				<li>列表项目三</li>
+			</ul>
+		</article>
+
+		<article>
+			<h2>图片</h2>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+				<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+			<figure>
+				<figcaption>好色仙人</figcaption>
+				<img src="img/zilaiye2.jpg" alt="自来也">
+			</figure>
+		</article>
+
+
+		<article>
+			<h2>最后一篇文章一级标题</h2>
+			<h3>文章二级标题</h3>
+			<span>文章作者 文章发表时间</span>
+			<ol>
+				<li>排名1</li>
+				<li>排名2</li>
+				<li>排名3</li>
+			</ol>
+
+			<table>
+				<caption>下面是一个表格</caption>
+
+				<thead>
+					<tr>
+						<th>表头</th>
+						<th>表头</th>
+						<th>表头</th>
+					</tr>	
+				</thead>
+
+				<tbody>
+				    <tr>
+				    	<td>表内容单元格</td>
+				    	<td>表内容单元格</td>
+				    	<td><a href="">操作</a></td>
+				    </tr>
+					<tr>
+				    	<td>表内容单元格</td>
+				    	<td>表内容单元格</td>
+				    	<td><a href="">操作</a></td>
+				    </tr>
+				    <tr>
+				    	<td>表内容单元格</td>
+				    	<td>表内容单元格</td>
+				    	<td><a href="">操作</a></td>
+				    </tr>
+				    <tr>
+				    	<td>表内容单元格</td>
+				    	<td>表内容单元格</td>
+				    	<td><a href="">操作</a></td>
+				    </tr>				    				    				    					
+				</tbody>
+
+				<tfoot>
+				<tr>
+					<td>总计</td>
+					<td colspan="2">1000</td>
+				</tr>	
+				</tfoot>
+			</table>
+		</article>
+		</div>
+	
+	</main>	
+
+		<footer>
+			<span>版权所有&copy;</span>
+		</footer>
+		
+	
+
+</body>			
+</html>			

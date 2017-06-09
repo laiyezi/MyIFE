@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务六：UI组件之浮出层</title>
+	<style>
+        *{
+        	margin: 0;
+        	padding: 0;
+        }
+        .mask{
+        	display: none;
+        	width: 100%;
+        	position: fixed;
+        	top: 0;
+        	bottom: 0;
+        	background-color: rgba(110,110,110,0.3);
+        	z-index: 999;
+        }
+        #toolTip{
+        	width: 500px;
+        	height: 250px;
+        	display: none;
+        	position: absolute;
+        	top: 50%;
+        	left: 50%;
+        	transform: translate(-50%,-50%);
+        	border: 1px solid #ccc;
+        	background-color: #f7f7f7;
+        	z-index: 1000;
+        }
+
+        
+
+        #header{
+        	height: 50px;
+        	background-color: #abc;
+        }
+        #header h3{
+            display: inline-block;
+            line-height: 50px;
+            padding-left: 5%;
+            width: 88%;
+        }
+        #header span{
+        	font-size: 20px;
+        }
+        #header span:hover{
+        	/*background-color: red;*/
+        	font-size: 26px;
+        	cursor: pointer;
+        }
+        #content p{
+        	font-size: 20px;
+        	line-height: 50px;
+        	margin: 10px;
+        }
+ 
+
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<button type="button" id="btn">点我试试看看</button>
+        <div class="mask">
+        </div>
+
+    	<div id="toolTip">
+        	<div id="header" class="clearfix">
+        		<h3>蠕虫计划</h3>
+        		<span class="close">X</span>
+        	</div>
+        	<div id="content">
+        		<p>小明你已经中了我的病毒，快去买个炸鸡块，否则我就撕票</p>
+        	</div>
+
+    	</div>
+        		
+        
+
+	</div>
+
+	<script src="js/task-6.js"></script>
+</body>
+</html>
